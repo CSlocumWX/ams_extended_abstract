@@ -1,4 +1,4 @@
-##An Extended Abstract LaTeX Template with AMS Formatting
+## An Extended Abstract LaTeX Template with AMS Formatting
 
 This repository contains a LaTeX template for creating an extended
 abstract that follows the [American Meteorological Society's instructions
