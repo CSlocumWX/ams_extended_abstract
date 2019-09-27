@@ -108,7 +108,7 @@
 % Define the extended abstract title
 \newcommand{\extabstitle}{
    \date{} % No date
-   \title{\pgnumtextbox{\@papernumber}\titletextbox{\hfil \@papertitle \hfil}\pgnumtextbox{}}
+   \title{\pgnumtextbox{\protect\@papernumber}\titletextbox{\hfil \protect\@papertitle \hfil}\pgnumtextbox{}}
    \twocolumn[\maketitle] % Make the title
 }
 
@@ -134,40 +134,43 @@
 
 %section definitions
 \renewcommand{\section}{%
-\renewcommand{\@seccntformat}[1]{{\csname the##1\endcsname}.~~}%1
-\@startsection
-{section}%
-{1}% 1 is the level for subsection
-{0mm}% NO indent, starts immediately
-{-\baselineskip}% skips 1 baseline after end of previous subsection
-{0.5\baselineskip}% half baseline and the first paragraph starts
-{\normalsize\bf\uppercase}%the style, Large and boldface
+\renewcommand{\@seccntformat}[1]{
+    {\csname the##1\endcsname}.~~}%1
+    \@startsection
+    {section}%
+    {1}% 1 is the level for subsection
+    {0mm}% NO indent, starts immediately
+    {-\baselineskip}% skips 1 baseline after end of previous subsection
+    {0.5\baselineskip}% half baseline and the first paragraph starts
+    {\normalsize\bf\uppercase}%the style, Large and boldface
 }
 \renewcommand{\thesection}{\arabic{section}} % numbers
 
 % subsection definitions
 \renewcommand{\subsection}{%
-\renewcommand{\@seccntformat}[1]{{\csname the##1\endcsname}.~~}%1
-\@startsection
-{subsection}%
-{2}% 2 is the level for subsection
-{0mm}% NO indent, starts immediately
-{-\baselineskip}% skips 1 baseline after end of previous subsection
-{0.5\baselineskip}% half baseline and the first paragraph starts
-{\normalfont\bf\itshape}%the style, all italics
+\renewcommand{\@seccntformat}[1]{
+    {\csname the##1\endcsname}.~~}%1
+    \@startsection
+    {subsection}%
+    {2}% 2 is the level for subsection
+    {0mm}% NO indent, starts immediately
+    {-\baselineskip}% skips 1 baseline after end of previous subsection
+    {0.5\baselineskip}% half baseline and the first paragraph starts
+    {\normalfont\bf\itshape}%the style, all italics
 }
 \renewcommand{\thesubsection}{\arabic{subsection}} % letters
 
 % subsubsection definitions
 \renewcommand{\subsubsection}{%
-\renewcommand{\@seccntformat}[1]{{\csname the##1\endcsname})~~}%1
-\@startsection
-{subsubsection}%
-{3}% 3 is the level for subsubsection
-{5mm}% Indent subsubsections
-{-\baselineskip}% skips 1 baseline after end of previous subsubsection
-{0.5\baselineskip}% half baseline and the first paragraph starts
-{\normalfont\normalsize\sc}%
+\renewcommand{\@seccntformat}[1]{
+    {\csname the##1\endcsname})~~}%1
+    \@startsection
+    {subsubsection}%
+    {3}% 3 is the level for subsubsection
+    {5mm}% Indent subsubsections
+    {-\baselineskip}% skips 1 baseline after end of previous subsubsection
+    {0.5\baselineskip}% half baseline and the first paragraph starts
+    {\normalfont\normalsize\sc}%
 }
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 
@@ -180,35 +183,40 @@
 \def\acknowledgments{\paragraph*{Acknowledgments.}}
 \def\acknowledgment{\paragraph*{Acknowledgment.}}
 
-\renewenvironment{appendix}[1][1]%
-{\ifthenelse{\equal{#1}{1}}%
-{\renewcommand\theequation{A\arabic{equation}}%
-\setcounter{equation}{0}% reset counter
-\setcounter{subsection}{0}% reset counter
-\begin{center}%
-\section*{\textnormal{APPENDIX}}%
-\end{center}}%
-{\renewcommand\theequation{{#1}\arabic{equation}}%
-\setcounter{equation}{0}% reset counter
-\setcounter{subsection}{0}% reset counter
-\begin{center}%
-\section*{\textnormal{APPENDIX {#1}}}%
-\end{center}}}%
+\renewenvironment{appendix}[1][1]{
+    \ifthenelse{\equal{#1}{1}}{
+        \renewcommand\theequation{A\arabic{equation}}%
+        \setcounter{equation}{0}% reset counter
+        \setcounter{subsection}{0}% reset counter
+        \begin{center}%
+            \section*{\textnormal{APPENDIX}}%
+        \end{center}
+        
+    }%
+    {
+        \renewcommand\theequation{{#1}\arabic{equation}}%
+        \setcounter{equation}{0}% reset counter
+        \setcounter{subsection}{0}% reset counter
+        \begin{center}%
+            \section*{\textnormal{APPENDIX {#1}}}%
+        \end{center}
+    }
+}%
 
 % Remove colon in \caption, AMS style is to have a period after the
 % figure number
 \long\def\@makecaption#1#2{%
 % Create the proper style for the figure and table captions.
-\renewcommand{\figurename}{\textsc{Fig.}}
-\renewcommand{\tablename}{\textsc{Table}}
-\renewcommand{\thefigure}{\arabic{figure}.}
-\renewcommand{\thetable}{\arabic{table}.}
-\vskip\abovecaptionskip
-\sbox\@tempboxa{#1~~#2}%
-\ifdim \wd\@tempboxa >\hsize
-#1~~#2\par%
-\else
-\global \@minipagefalse
-\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-\fi
+    \renewcommand{\figurename}{\textsc{Fig.}}
+    \renewcommand{\tablename}{\textsc{Table}}
+    \renewcommand{\thefigure}{\arabic{figure}.}
+    \renewcommand{\thetable}{\arabic{table}.}
+    \vskip\abovecaptionskip
+    \sbox\@tempboxa{#1~~#2}%
+    \ifdim \wd\@tempboxa >\hsize
+        #1~~#2\par%
+    \else
+        \global \@minipagefalse
+        \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
 \vskip\belowcaptionskip}
