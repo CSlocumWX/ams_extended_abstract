@@ -5,7 +5,7 @@ abstract that follows the [American Meteorological Society's instructions
 for formatting](https://www.ametsoc.org/ams/index.cfm/meetings-events/abstract-author-and-presenter-information/abstract-author-instructions/extended-abstract-instructions/).
 
 This LaTeX template includes and uses the [AMS reference and citation format](https://www.ametsoc.org/ams/index.cfm/publications/authors/journal-and-bams-authors/formatting-and-manuscript-components/references/)
-reference section style. To change, `ametsoc2014` in the
+reference section style. To change, `ametsocV6` in the
 `\bibliographystyle{}` command can be swapped for any user specified
 `.bst` file if a different reference and in-text citation format is
 preferred (note that this would not adhere to the AMS extended
