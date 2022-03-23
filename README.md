@@ -50,7 +50,7 @@ template \citep[e.g.,][]{Eliassen1951}.
 \acknowledgments
 Add acknowledgments here.
 
-\bibliographystyle{ametsoc2014}
+\bibliographystyle{ametsocV6}
 \bibliography{references}
 \end{document}
 ```
