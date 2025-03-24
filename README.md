@@ -48,6 +48,10 @@ template \citep[e.g.,][]{Eliassen1951}.
 % You can also use \subsection and \subsubsection
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\datastatement
+Add data availibility statement here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments
 Add acknowledgments here.
 
