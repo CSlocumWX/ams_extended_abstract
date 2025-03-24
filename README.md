@@ -29,8 +29,8 @@ to what is in the `./template.tex` file.
 \papernumber{J1A.1}
 \author{John Doe
         \thanks{\noindent{\itshape Corresponding author address:}
-        John Doe, Street Address, City, AB ZIP code;\newline
-        E-mail: \href{mailto:}{}.}
+        John Doe, Street Address, City, AB ZIP code;
+        e-mail: \href{mailto:}{}.}
 }
 \affiliation{Affiliations}
 
