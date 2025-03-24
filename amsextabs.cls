@@ -188,6 +188,7 @@
                                     {6pt \@plus1ex \@minus.2ex}%
                                     {-1em}%
                                     {\normalfont\normalsize\it}}
+\def\datastatement{\paragraph*{Data availability statement.}}
 \def\acknowledgments{\paragraph*{Acknowledgments.}}
 \def\acknowledgment{\paragraph*{Acknowledgment.}}
 
