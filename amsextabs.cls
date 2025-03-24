@@ -4,7 +4,6 @@
 % Maintainer: Chris Slocum
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{amsextabs}[2018/12/28 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,14 +13,14 @@
 \DeclareOption{9pt}{\def\@@ptsize{9pt}}
 \DeclareOption{10pt}{\def\@@ptsize{10pt}}
 \ProcessOptions\relax
-\LoadClass[\@@ptsize, twocolumn, letterpaper]{extarticle}
+\LoadClass[\@@ptsize, twocolumn, letterpaper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Parse preamble input
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\global \let \@papertitle \@empty
+\global \let \@affiliation \@empty
 \global \let \@papernumber \@empty
-\def\papertitle#1{\gdef\@papertitle{\uppercase{#1}}}
+\def\affiliation#1{\gdef\@affiliation{{#1}}}
 \def\papernumber#1{\gdef\@papernumber{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,7 +48,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % class font
 \usepackage[T1]{fontenc}
-\usepackage{helvet}
+\usepackage{tgheros}
 \renewcommand\familydefault{\sfdefault}
 \renewcommand\large{\@setfontsize\large{10pt}{10pt}}
 % font colors
@@ -75,42 +74,51 @@
 %   URL settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Use times font in URLs
+\RequirePackage{bookmark}
 \RequirePackage{hyperref}
 \hypersetup{
-    breaklinks,
+    hidelinks,
     unicode,
+    bookmarks = true,
+    bookmarksopen = false,
+    pdfpagemode=UseNone,
     pdfborder={0 0 0},
+    pdfdisplaydoctitle,
     colorlinks,
     linkcolor={black},
     citecolor={black},
     urlcolor={black}
 }
-\hypersetup{final=true}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Title layout and settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % building the title for the extended abstract
-\usepackage{abstract}
-\usepackage{titling}
-\postauthor{\end{tabular}\par\end{center}\vspace{-30pt}}
-\setlength{\droptitle}{-29pt}
-
-\pretitle{\large\bf\noindent}
-\posttitle{}
 
 \newcommand\titletextbox[1]{%
-      \parbox{.8\textwidth}{#1}%
+      \parbox{.8\textwidth}{\centering \MakeUppercase{#1}}%
 }
 \newcommand\pgnumtextbox[1]{%
       \parbox{.1\textwidth}{#1}%
 }
-% Define the extended abstract title
-\newcommand{\extabstitle}{
-   \date{} % No date
-   \title{\pgnumtextbox{\protect\@papernumber}\titletextbox{\hfil \protect\@papertitle \hfil}\pgnumtextbox{}}
-   \twocolumn[\maketitle] % Make the title
-}
+
+\def\@maketitle{%
+  \null
+  \let \footnote \thanks
+    {\large\bfseries\pgnumtextbox{\@papernumber}\titletextbox{\@title}\pgnumtextbox{}\par}%
+    \vskip 0.1em%
+    {\large
+      \lineskip 0.2em%
+      \begin{center}%
+        \begin{tabular}[t]{c}%
+          \@author\\
+          {\small\itshape\@affiliation}
+        \end{tabular}\par
+      \end{center}%
+    }%
+  \par
+  \vskip 0.5em
+  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Reference section settings
