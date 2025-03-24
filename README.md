@@ -22,21 +22,22 @@ Below is example LaTeX using the template. This example is similar
 to what is in the `./template.tex` file.
 ```latex
 \documentclass[9pt]{amsextabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Enter your paper's/talk's title
-\papertitle{Paper title}
+\title{Paper title}
 % Your paper number is the <session number>.<paper number>
 \papernumber{J1A.1}
-\author{\normalsize{John Doe}\thanks{\noindent\textit{Corresponding author address:}
+\author{John Doe
+        \thanks{\noindent{\itshape Corresponding author address:}
         John Doe, Street Address, City, AB ZIP code;\newline
-        E-mail: \href{mailto:}{}.}\\
-       \small{\textit{Affliliation}}
+        E-mail: \href{mailto:}{}.}
 }
+\affiliation{Affiliations}
 
 \begin{document}
 % This creates the title and corresponding author information.
 % This should not have to change.
-\extabstitle
-\saythanks
+\maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   PLACE TEXT OF EXTENDED ABSTRACT HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
