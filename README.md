@@ -59,3 +59,6 @@ Add acknowledgments here.
 \bibliography{references}
 \end{document}
 ```
+
+### Using DocumentMetadata
+Consider compiling with lualatex to create standard compliant PDFs, especially the UA-2 standard.
