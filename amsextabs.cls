@@ -20,7 +20,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \global\let\@affiliation\@empty
 \global\let\@papernumber\@empty
-\newcommand\aff[1]{\textsuperscript{\rm#1}\,}
+\newcommand\aff[1]{\textsuperscript{#1}\,}
 \def\affiliation#1{\gdef\@affiliation{#1}}
 \def\papernumber#1{\gdef\@papernumber{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
