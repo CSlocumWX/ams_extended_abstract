@@ -66,4 +66,7 @@ Add acknowledgments here.
 ```
 
 ## Using DocumentMetadata
-Consider compiling with lualatex to create standard compliant PDFs, especially the UA-2 standard.
+Consider compiling with LuaLaTeX to create standard compliant PDFs, especially the UA-2 standard.
+Note that these options do not guarantee compliance with the standards. So, you must manually check the output.
+Also, some LaTeX packages do not work with DocumentMetadata and cause errors.
+See the comments at the top of the template for additional information.
