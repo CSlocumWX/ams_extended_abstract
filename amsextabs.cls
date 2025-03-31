@@ -53,10 +53,10 @@
 \renewcommand\large{\@setfontsize\large{10pt}{10pt}}
 % font colors
 \RequirePackage{xcolor}
-% Fonts for math
-\RequirePackage{mathptmx}
 % Provide the amsmath, fonts, symbol, and boldface math packages
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
+% Fonts for math
+\RequirePackage{newtxmath}
 % Set page numbers
 \pagestyle{plain}
 % Corrected labels to roman numbers for lists
