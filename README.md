@@ -1,9 +1,14 @@
-## American Meteorological Society Extended Abstract LaTeX Template
+# AMS Extended Abstract LaTeX Template
 
 This repository contains a LaTeX class for creating an extended
 abstract that follows the [American Meteorological Society's instructions
 for formatting](https://www.ametsoc.org/ams/index.cfm/meetings-events/abstract-author-and-presenter-information/abstract-author-instructions/extended-abstract-instructions/).
 
+## About AMS Extended Abstracts
+AMS extended abstracts are an optional submission associated with presentations. AMS encourages using the extended abstract as it allows presenters to convey more information. These abstracts are submitted through the presenter's corner of the AMS conference website and typically have a deadline after the meeting unless used as a component in a student presentation award.
+
+## The Template
+Users of the AMS manuscript LaTeX template will feel at home. 
 This LaTeX template includes and uses the [AMS reference and citation format](https://www.ametsoc.org/ams/index.cfm/publications/authors/journal-and-bams-authors/formatting-and-manuscript-components/references/)
 reference section style. To change, `ametsocV6` in the
 `\bibliographystyle{}` command can be swapped for any user specified
@@ -11,13 +16,13 @@ reference section style. To change, `ametsocV6` in the
 preferred (note that this would not adhere to the AMS extended
 abstract formatting guidelines).
 
-### Style optional arguments for the document class
+## Style optional arguments for the document class
 The AMS extended abstract formatting guidelines are relatively
 rigid. However, you can pick between 9pt and 10pt font.
 
 * **9pt, 10pt** - AMS allows the font size of the main text to be within 9-10 pts.
 
-### Example LaTeX template
+## Example LaTeX template
 Below is example LaTeX using the template. This example is similar
 to what is in the `./template.tex` file.
 ```latex
@@ -60,5 +65,5 @@ Add acknowledgments here.
 \end{document}
 ```
 
-### Using DocumentMetadata
+## Using DocumentMetadata
 Consider compiling with lualatex to create standard compliant PDFs, especially the UA-2 standard.
