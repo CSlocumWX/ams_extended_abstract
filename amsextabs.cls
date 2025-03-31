@@ -16,13 +16,13 @@
 \LoadClass[\@@ptsize, twocolumn, letterpaper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Parse preamble input
+%   Parse preamble input to get affiliation and papernumber
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\global \let \@affiliation \@empty
-\global \let \@papernumber \@empty
-\def\affiliation#1{\gdef\@affiliation{{#1}}}
+\global\let\@affiliation\@empty
+\global\let\@papernumber\@empty
+\newcommand\aff[1]{\textsuperscript{\rm#1}\,}
+\def\affiliation#1{\gdef\@affiliation{#1}}
 \def\papernumber#1{\gdef\@papernumber{#1}}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Page setup and layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,14 +47,14 @@
 %   Font settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % class font
-\usepackage[T1]{fontenc}
-\usepackage{tgheros}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{tgheros}
 \renewcommand\familydefault{\sfdefault}
 \renewcommand\large{\@setfontsize\large{10pt}{10pt}}
 % font colors
 \RequirePackage{xcolor}
 % Fonts for math
-\usepackage{mathptmx}
+\RequirePackage{mathptmx}
 % Provide the amsmath, fonts, symbol, and boldface math packages
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
 % Set page numbers
@@ -91,9 +91,14 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Title layout and settings
+%   Title and thanks layout and settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % building the title for the extended abstract
+
+% Define correspondingauthor
+\def\correspondingauthor#1{%
+    \thanks{\noindent{{\itshape Corresponding author address}:}\ #1
+}}
 
 \newcommand\titletextbox[1]{%
       \parbox{.8\textwidth}{\centering \MakeUppercase{#1}}%
@@ -103,21 +108,18 @@
 }
 
 \def\@maketitle{%
-  \null
-  \let \footnote \thanks
+    \null
     {\large\bfseries\pgnumtextbox{\@papernumber}\titletextbox{\@title}\pgnumtextbox{}\par}%
     \vskip 0.1em%
+    \begin{center}%
     {\large
       \lineskip 0.2em%
-      \begin{center}%
-        \begin{tabular}[t]{c}%
-          \@author\\
-          {\small\itshape\@affiliation}
-        \end{tabular}\par
-      \end{center}%
+          {\@author\par}%
+          {\small\itshape\@affiliation\normalsize\par}%
     }%
-  \par
-  \vskip 0.5em
+    \end{center}%
+    \par
+    \vskip 0.5em%
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
