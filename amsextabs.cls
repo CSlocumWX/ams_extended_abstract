@@ -98,7 +98,7 @@
 % Define correspondingauthor
 \def\correspondingauthor#1{%
     \thanks{\noindent{{\itshape Corresponding author address}:}\ #1
-}\,}
+}}
 
 \newcommand\titletextbox[1]{%
       \parbox{.8\textwidth}{\centering \MakeUppercase{#1}}%
@@ -122,6 +122,7 @@
     \vskip 0.5em%
   }
 
+\def\and{\ \ \ {\sc and}\ \ \ }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Reference section settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,9 +191,13 @@
                                     {6pt \@plus1ex \@minus.2ex}%
                                     {-1em}%
                                     {\normalfont\normalsize\it}}
-\def\datastatement{\paragraph*{Data availability statement.}}
-\def\acknowledgments{\paragraph*{Acknowledgments.}}
-\def\acknowledgment{\paragraph*{Acknowledgment.}}
+\newcommand\statement{\@startsection{section}{1}{\z@}%
+                                    {6pt \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\normalfont\normalsize\it}}
+\def\datastatement{\statement*{Data availability statement.}}
+\def\acknowledgments{\statement*{Acknowledgments.}}
+\def\acknowledgment{\statement*{Acknowledgment.}}
 
 \renewenvironment{appendix}[1][1]{
     \ifthenelse{\equal{#1}{1}}{
