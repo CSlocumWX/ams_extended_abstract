@@ -27,12 +27,12 @@ to what is in the `./template.tex` file.
 \title{Paper title}
 % Your paper number is the <session number>.<paper number>
 \papernumber{J1A.1}
-\author{John Doe
-        \thanks{\noindent{\itshape Corresponding author address:}
-        John Doe, Street Address, City, AB ZIP code;
-        e-mail: \href{mailto:}{}.}
+\author{John Doe,\aff{a}\correspondingauthor{John Doe, Street Address, City, AB ZIP code;
+        e-mail: \href{mailto:}{John.Doe@affiliation.domain}},
+        and Jane Doe,\aff{b}
 }
-\affiliation{Affiliations}
+\affiliation{\aff{a}{Affiliation},
+             \aff{b}{Affiliation}}
 
 \begin{document}
 % This creates the title and corresponding author information.
