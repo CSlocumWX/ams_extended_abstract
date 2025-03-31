@@ -131,7 +131,7 @@
 \newcommand*{\doi}[1]{doi:\href{https://dx.doi.org/\detokenize{#1}}{\detokenize{#1}}}
 \setlength{\bibsep}{0.25\baselineskip}
 % Center the References section title
-\renewcommand{\refname}{\begin{center}\normalfont{\bf REFERENCES}\end{center}}
+\renewcommand{\refname}{\begin{center}\normalfont{\bf REFERENCES}\end{center}\par}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Section header settings
