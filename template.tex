@@ -35,9 +35,9 @@
 \title{Paper title}
 % Your paper number is the <session number>.<paper number>
 \papernumber{J1A.1}
-\author{John Doe,\aff{a}\correspondingauthor{John Doe, Street Address, City, AB ZIP code;
+\author{John Doe\aff{a}\correspondingauthor{John Doe, Street Address, City, AB ZIP code;
         e-mail: \href{mailto:}{John.Doe@affiliation.domain}}
-        and Jane Doe,\aff{b}
+        \and Jane Doe\aff{b}
 }
 \affiliation{\aff{a}{Affiliation},
              \aff{b}{Affiliation}}
@@ -56,10 +56,12 @@ You can use add inline citations using the same format as with the
 American Meteorological Society manuscript \LaTeX template
 \citep[e.g.,][]{Eliassen1951}.
 
-In this template, math stays in a serif font.
+In this template, math stays in a serif font as shown by this
+example for the cosine:
 \begin{equation}
-    y = \cos (x)
+    y = \cos (x),
 \end{equation}
+where $x$ is the independent variable and $y$ is the dependent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DATA AVAILABILITY STATEMENT
