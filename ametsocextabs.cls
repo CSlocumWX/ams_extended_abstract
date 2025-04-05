@@ -106,7 +106,7 @@
 
 % Define correspondingauthor
 \def\correspondingauthor#1{%
-    \thanks{\noindent{{\itshape Corresponding author address}:}\ #1
+    \,\thanks{\noindent{{\itshape Corresponding author address}:}\ #1
 }}
 
 \newcommand\titletextbox[1]{%
