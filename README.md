@@ -11,7 +11,7 @@ AMS extended abstracts have the following guidelines:
 * Submission file sizes cannot exceed 10 MB
 * Units should be in International System of Units (SI units) (see [AMS Math Formula, Units, Time](https://www.ametsoc.org/ams/publications/author-information/formatting-and-manuscript-components/mathematical-formulas-units-and-time-and-date/) page)
 
-This template follows the other rules for page layout and text font (note that math is kept in a serif typeface).
+This template follows the other rules for page layout and text font (note that by default math is in a sans-serif typeface).
 
 ## The Template
 Users of the AMS manuscript LaTeX template will feel at home. This template uses a number of the same settings, except where those settings deviate from the AMS extended abstract guidelines.
@@ -20,7 +20,8 @@ Users of the AMS manuscript LaTeX template will feel at home. This template uses
 The AMS extended abstract formatting guidelines are relatively
 rigid. However, you can pick between 9pt and 10pt font.
 
-* **9pt, 10pt** - AMS allows the font size of the main text to be within 9-10 pts.
+* **9pt, 10pt** - AMS allows the font size of the main text to be within 9&ndash;10 pts.
+* **serif** - Puts mathematical formulas into a serifed typeface.
 
 ### Example LaTeX template
 Below is example LaTeX using the template. This example is similar
