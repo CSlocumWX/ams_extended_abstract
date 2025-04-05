@@ -37,7 +37,7 @@
     foot=0.5truein
 }
 % Set the column separator width to 0.25 inches.
-\setlength{\columnsep}{.25in}
+\setlength{\columnsep}{0.25truein}
 % set the paragraph spacing to 0
 \renewcommand{\baselinestretch}{1.05}
 \setlength{\parskip}{0pt}%
