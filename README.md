@@ -24,6 +24,7 @@ rigid. However, you can pick between 9pt and 10pt font.
 
 * **9pt, 10pt** - AMS allows the font size of the main text to be within 9&ndash;10 pts.
 * **serif** - Puts mathematical formulas into a serifed typeface.
+* **blue** -  `blue` makes the text for URLs and references dark blue rather than black. By default, all URLs and references are displayed in black.
 
 ### Example LaTeX template
 Below is example LaTeX using the template. This example is similar

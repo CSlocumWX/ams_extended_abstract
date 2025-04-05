@@ -15,6 +15,8 @@
 \DeclareOption{10pt}{\def\@@ptsize{10pt}}
 \newif\ifserif\seriffalse
 \DeclareOption{serif}{\seriftrue}
+\newif\ifblue \bluefalse
+\DeclareOption{blue}{\bluetrue}
 \ProcessOptions\relax
 \LoadClass[\@@ptsize, twocolumn, letterpaper]{article}
 
@@ -94,10 +96,22 @@
     pdfborder={0 0 0},
     pdfdisplaydoctitle,
     colorlinks,
-    linkcolor={black},
-    citecolor={black},
-    urlcolor={black}
 }
+
+\ifblue
+    \hypersetup{
+        colorlinks
+        linkcolor={black},
+        citecolor={blue!80!black},
+        urlcolor={blue!80!black}
+    }
+\else
+    \hypersetup{
+        linkcolor={black},
+        citecolor={black},
+        urlcolor={black}
+    }
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Title and thanks layout and settings
