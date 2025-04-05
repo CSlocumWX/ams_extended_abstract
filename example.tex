@@ -46,10 +46,10 @@ The AMS Extended Abstract Instructions permits font sizes of 9--10~pt
 in a sans-serif typeface such as Helvetica \citep{AMS2025abs}.
 To select a size, include one of the following options in the
 documentclass call:
-\begin{enumerate}
+\begin{itemize}
     \item \texttt{9pt} for a 9~pt font size (the default), and
     \item \texttt{10pt} for a 10~pt font size.
-\end{enumerate}
+\end{itemize}
 As an example, using the 9~pt option would look like
 \texttt{\textbackslash documentclass[9pt]\{ametsocextabs\}}.
 
@@ -83,10 +83,10 @@ presenters can follow the citation instructions included in the
 documentation for the AMS \LaTeX\ files \cite{AMS2025latex, AMS2025doc}.
 
 The AMS BibTeX style uses two basic citation macro commands:
-\begin{itemize}
+\begin{enumerate}
     \item \texttt{\textbackslash citet} for textual citations \rightarrow \citet{Eliassen1951}, and
     \item \texttt{\textbackslash citep} for parenthetical citations  \rightarrow \citep{Eliassen1951}.
-\end{itemize}
+\end{enumerate}
 You can add text to a parenthetical citation and multiple
 citations just as in the AMS \LaTeX\ files
 \citep[e.g.,][]{Eliassen1951,AMS2025latex, AMS2025doc}.
@@ -97,6 +97,55 @@ style with the appropriately populated fields (e.g., AMS does not
 use issue but BibTeX will still render it). See the ``How to Use the
 American Meteorological Society Bibliographic Style File'' PDF file
 included in the AMS \LaTeX\ files \cite{AMS2025latex, AMS2025doc}.
+
+\subsection{Sections}
+The class provides multilevel or nested sections that provide
+a section depth of four levels:
+\begin{itemize}
+    \item \texttt{\textbackslash section},
+    \item \texttt{\textbackslash subsection},
+    \item \texttt{\textbackslash subsubsection}, and
+    \item \texttt{\textbackslash paragraph}.
+\end{itemize}
+For tagged PDFs, make sure that the nesting is used in the
+appropriate order and not for stylistic display.
+
+The class contains two additional, optional sections that should
+only appear once in the document:
+\begin{itemize}
+    \item \texttt{\textbackslash datastatement} ---
+        provides a place where presenters can note where readers will
+        find the data used in the research, and
+    \item \texttt{\textbackslash acknowledgments} ---
+        provides a place where presenters can highlight funding sources
+        and any disclaimers associated with the work.
+\end{itemize}
+
+The class also has the ability to add appendixes. See the Appendix
+for more information.
+
+\subsection{Tables and Figures}
+Nothing special here. Tables and figures can be added as one would
+normally do. As a reminder, AMS format is to have the caption above
+a table (see Table~\ref{tab:cos}) and below a figure. Both can be one
+or two columns wide.
+
+\begin{table}
+    \caption{Values of $y$ given $x$ using the cosine function in \eqref{eq:equation}.}\label{tab:cos}
+    \begin{center}
+        \tagpdfsetup{table-header-rows={1}}
+        \begin{tabular}{rr}
+            \hline\hline
+            $x$ & $y$\\
+            \hline
+            $0$ & $1$ \\
+            $\pi/2$ & $0$ \\
+            $\pi$ & $-1$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DATA AVAILABILITY STATEMENT
@@ -130,6 +179,18 @@ Institute for Research in the Atmosphere at Colorado State
 University and through the National Science Foundation under Grants
 ATM-0425247, ATM-0837932, AGS-1147120, AGS-1250966, AGS-1546610, and
 AGS-1601623.
+
+\appendix
+\appendixtitle{An Appendix on Appendixes}
+This class uses the AMS format to allow for multiple appendixes.
+Whether one or more appendixes, each should have an appendix title
+that is added with the \texttt{\textbackslash appendixtitle}
+command.
+
+If more than one appendix, a letter should be added at the end of
+the appendix command (e.g., \texttt{\textbackslash appendix[A]},
+\texttt{\textbackslash appendix[B]}). See the \citet{AMS2025latex}
+and \citet{AMS2025doc} for more information.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   No need to edit the reference section below
