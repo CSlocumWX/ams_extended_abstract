@@ -26,7 +26,7 @@ rigid. However, you can pick between 9pt and 10pt font.
 Below is example LaTeX using the template. This example is similar
 to what is in the `./template.tex` file.
 ```latex
-\documentclass[9pt]{amsextabs}
+\documentclass[9pt]{ametsocextabs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Enter your paper's/talk's title
 \title{Paper title}

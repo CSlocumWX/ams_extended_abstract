@@ -1,10 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Name:       amsextabs LaTeX class
+% Name:       ametsocextabs LaTeX class
 % Purpose:    Conform to the AMS extended abstract formatting guidelines
 % Maintainer: Chris Slocum
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ProvidesClass{amsextabs}[2018/12/28 AMS Extended Abstract Class]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{ametsocextabs}[2018-12-28 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
