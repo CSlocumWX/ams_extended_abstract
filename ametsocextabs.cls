@@ -82,6 +82,7 @@
 %   URL settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Use times font in URLs
+\RequirePackage{xurl}
 \RequirePackage{bookmark}
 \RequirePackage{hyperref}
 \hypersetup{
