@@ -7,22 +7,22 @@ for formatting](https://www.ametsoc.org/ams/index.cfm/meetings-events/abstract-a
 ## About AMS Extended Abstracts
 AMS extended abstracts are an optional submission associated with presentations. AMS encourages using the extended abstract as it allows presenters to convey more information. These abstracts are submitted through the presenter's corner of the AMS conference website and typically have a deadline after the meeting unless used as a component in a student presentation award.
 
-## The Template
-Users of the AMS manuscript LaTeX template will feel at home. 
-This LaTeX template includes and uses the [AMS reference and citation format](https://www.ametsoc.org/ams/index.cfm/publications/authors/journal-and-bams-authors/formatting-and-manuscript-components/references/)
-reference section style. To change, `ametsocV6` in the
-`\bibliographystyle{}` command can be swapped for any user specified
-`.bst` file if a different reference and in-text citation format is
-preferred (note that this would not adhere to the AMS extended
-abstract formatting guidelines).
+AMS extended abstracts have the following guidelines:
+* Submission file sizes cannot exceed 10 MB
+* Units should be in International System of Units (SI units) (see [AMS Math Formula, Units, Time](https://www.ametsoc.org/ams/publications/author-information/formatting-and-manuscript-components/mathematical-formulas-units-and-time-and-date/) page)
 
-## Style optional arguments for the document class
+This template follows the other rules for page layout and text font (note that math is kept in a serif typeface).
+
+## The Template
+Users of the AMS manuscript LaTeX template will feel at home. This template uses a number of the same settings, except where those settings deviate from the AMS extended abstract guidelines.
+
+### Style optional arguments for the document class
 The AMS extended abstract formatting guidelines are relatively
 rigid. However, you can pick between 9pt and 10pt font.
 
 * **9pt, 10pt** - AMS allows the font size of the main text to be within 9-10 pts.
 
-## Example LaTeX template
+### Example LaTeX template
 Below is example LaTeX using the template. This example is similar
 to what is in the `./template.tex` file.
 ```latex
@@ -65,8 +65,25 @@ Add acknowledgments here.
 \end{document}
 ```
 
+### Bibliography Style
+This LaTeX template includes and uses the [AMS reference and citation format](https://www.ametsoc.org/ams/index.cfm/publications/authors/journal-and-bams-authors/formatting-and-manuscript-components/references/)
+reference section style. This means that your existing
+`.bib` file will work here without needing changes.
+
+While the AMS extended abstract format requires citations
+to use AMS style, the style can be changed.
+To change, `ametsocV6` in the
+`\bibliographystyle{}` command can be swapped for any user specified
+`.bst` file if a different reference and in-text citation format is
+preferred (note that this would not adhere to the AMS extended
+abstract formatting guidelines).
+
 ## Using DocumentMetadata
-Consider compiling with LuaLaTeX to create standard compliant PDFs, especially the UA-2 standard.
+The recent updates by the LaTeX Project have allowed
+LaTeX engine generated PDF files to adhere to PDF
+standard formats like PDF/A, PDF/UA, and PDF/X.
+Because of these recent changes, please use [TeX Live 2025](https://tug.org/texlive/) or newer.
+For the best results, consider compiling with LuaLaTeX to create standard compliant PDFs, especially the UA-2 standard.
 Note that these options do not guarantee compliance with the standards. So, you must manually check the output.
 Also, some LaTeX packages do not work with DocumentMetadata and cause errors.
 See the comments at the top of the template for additional information.
