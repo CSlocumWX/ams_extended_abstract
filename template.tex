@@ -1,0 +1,80 @@
+% Attempt at an AMS extended abstract template
+% Developed by Chris Slocum, CSU
+% Based off of the AMS LaTeX template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DocumentMetadata options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DocumentMetadata is new to LaTeX. It increases accessibility and
+% helps PDF files meet PDF standards. Note that uses these does not
+% guarentee standard compliant PDF files. And, some features are still
+% experimental and might not work with your files.
+% References:
+%   https://latex3.github.io/tagging-project/
+%   https://mirrors.mit.edu/CTAN/macros/latex/required/latex-lab/documentmetadata-support-doc.pdf
+%   https://mirrors.mit.edu/CTAN/macros/latex/required/latex-lab/latex-lab-table.pdf
+% . https://latex3.github.io/tagging-project/tagging-status/
+\DocumentMetadata
+{
+    lang = en-US,
+    pdfversion = 2.0,
+    pdfstandard = a-4f,
+    pdfstandard = x-6,
+    pdfstandard = ua-2,
+    testphase ={
+        phase-III,
+        table,
+        title,
+        math,
+        firstaid,
+    },
+    xmp = true,
+}
+\documentclass[9pt]{ametsocextabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enter your paper's/talk's title
+\title{Paper title}
+% Your paper number is the <session number>.<paper number>
+\papernumber{J1A.1}
+\author{John Doe\aff{a}\correspondingauthor{John Doe, Street Address, City, AB ZIP code;
+        e-mail: \href{mailto:}{John.Doe@affiliation.domain}}
+        \and Jane Doe\aff{b}
+}
+\affiliation{\aff{a}{Affiliation},
+             \aff{b}{Affiliation}}
+
+\begin{document}
+% This creates the title and corresponding author information.
+% This should not have to change or be removed.
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   PLACE TEXT OF EXTENDED ABSTRACT HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Text starts here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DATA AVAILABILITY STATEMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The data availability statement is where authors should describe
+% how the data underlying the findings within the article can be
+% accessed and reused.  Authors should attempt to provide
+% unrestricted access to all data and materials underlying reported
+% findings. If data access is restricted, authors must mention this
+% in the statement.
+%
+\datastatement
+Add Data availability statement here. Use the
+\texttt{\textbackslash url\{\}} macro command to link to data.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\acknowledgments
+Add acknowledgments here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   No need to edit the reference section below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ametsocV6}
+\bibliography{references}
+\end{document}
