@@ -50,18 +50,73 @@
 %   PLACE TEXT OF EXTENDED ABSTRACT HERE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-Add your text here.
+The purpose of the \lowercase{\texttt{ametsocextabs}} \LaTeX class
+template is to assist presenters at American Meteorological Society
+(AMS) conferences prepare an extended abstract that follows the AMS
+Extended Abstract Instructions \citep{AMS2025abs}. While AMS no
+longer provides hard copies of the extended abstracts, the abstracts
+allow presenters to capture their presentation in greater detail.
 
-You can use add inline citations using the same format as with the
-American Meteorological Society manuscript \LaTeX template
-\citep[e.g.,][]{Eliassen1951}.
+Also, The Max A. Eaton Student Prize, awarded for an outstanding
+student paper presented at each conference on hurricanes and tropical
+meteorology, requires students to submit an extended abstract and
+evaluates the quality of both extended abstract and presentation
+\citep{AMS2025student, AMS2025Eaton}.
 
-In this template, math stays in a serif font as shown by this
-example for the cosine:
+\section{The \lowercase{\texttt{ametsocextabs}} \LaTeX Class}
+
+\subsection{Font Size}
+
+The AMS Extended Abstract Instructions permits font sizes of 9--10~pt
+in a sans-serif typeface such as Helvetica \citep{AMS2025abs}.
+To select a size, include one of the following options in the
+documentclass call:
+\begin{enumerate}
+    \item \texttt{9pt} for a 9~pt font size (the default), and
+    \item \texttt{10pt} for a 10~pt font size.
+\end{enumerate}
+As an example, using the 9~pt option would look like
+\texttt{\textbackslash documentclass[9pt]\{ametsocextabs\}}.
+
+\subsection{Mathematical Formula Typeface}
+By default, mathematical formulas render with a sans-serif typeface
+to stay consistent with the AMS guidelines shown by this example
+for the cosine function:
 \begin{equation}
     y = \cos (x),
+    \label{eq:equation}
 \end{equation}
 where $x$ is the independent variable and $y$ is the dependent.
+Equations can be referenced in the usual way as with \eqref{eq:equation}.
+
+However, users can add the \texttt{serif} class option to the
+documentclass call to change the mathematical formulas from a
+sans-serif typeface to a serifed typeface (e.g.,
+\texttt{\textbackslash documentclass[serif]\{ametsocextabs\}}). This
+option might be useful when symbols are not clear (e.g., a lowercase
+`l' renders as $l$ and an uppercase 'i' as $I$).
+
+\subsection{Citations and References}
+The \lowercase{\texttt{ametsocextabs}} \LaTeX class template
+includes the AMS BibTeX style file \texttt{ametsocV6}. With which,
+presenters can follow the citation instructions included in the
+documentation for the AMS \LaTeX files \cite{AMS2025latex, AMS2025doc}.
+
+The AMS BibTeX style uses two basic citation macro commands:
+\begin{itemize}
+    \item \texttt{\textbackslash citet} for textual citations \rightarrow \citet{Eliassen1951}, and
+    \item \texttt{\textbackslash citep} for parenthetical citations  \rightarrow \citep{Eliassen1951}.
+\end{itemize}
+You can add text to a parenthetical citation and multiple
+citations just as in the AMS \LaTeX files
+\citep[e.g.,][]{Eliassen1951,AMS2025latex, AMS2025doc}.
+
+Store references in a \texttt{.bib} bibliography file such as the
+provides \texttt{references.bib} file. Entries should follow AMS's
+style with the appropriately populated fields (e.g., AMS does not
+use issue but BibTeX will still render it). See the ``How to Use the
+American Meteorological Society Bibliographic Style File'' PDF file
+included in the AMS \LaTeX files \cite{AMS2025latex, AMS2025doc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DATA AVAILABILITY STATEMENT
@@ -74,7 +129,8 @@ where $x$ is the independent variable and $y$ is the dependent.
 % in the statement.
 %
 \datastatement
-Add Data availability statement here.
+Add Data availability statement here. Use the
+\texttt{\textbackslash url\{\}} macro command to link to data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENTS
