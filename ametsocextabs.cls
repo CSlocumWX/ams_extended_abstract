@@ -5,7 +5,7 @@
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[2025-03-08]
-\ProvidesClass{ametsocextabs}[2018-12-28 AMS Extended Abstract Class]
+\ProvidesClass{ametsocextabs}[2025-04-05 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
@@ -13,6 +13,8 @@
 \def\@@ptsize{9pt}
 \DeclareOption{9pt}{\def\@@ptsize{9pt}}
 \DeclareOption{10pt}{\def\@@ptsize{10pt}}
+\newif\ifserif\seriffalse
+\DeclareOption{serif}{\seriftrue}
 \ProcessOptions\relax
 \LoadClass[\@@ptsize, twocolumn, letterpaper]{article}
 
@@ -50,14 +52,19 @@
 % class font
 \RequirePackage[T1]{fontenc}
 \RequirePackage{tgheros}
-\renewcommand\familydefault{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
 \renewcommand\large{\@setfontsize\large{10pt}{10pt}}
 % font colors
 \RequirePackage{xcolor}
 % Provide the amsmath, fonts, symbol, and boldface math packages
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
 % Fonts for math
-\RequirePackage{newtxmath}
+\ifserif
+    \RequirePackage{newtxmath}
+\else
+    \RequirePackage{sansmath}
+    \sansmath
+\fi
 % Set page numbers
 \pagestyle{plain}
 % Corrected labels to roman numbers for lists
