@@ -228,6 +228,8 @@
     }
 }%
 
+\long\def\appendixtitle#1{{\centering\bf #1\vskip6pt}}
+
 % Remove colon in \caption, AMS style is to have a period after the
 % figure number
 \long\def\@makecaption#1#2{%
