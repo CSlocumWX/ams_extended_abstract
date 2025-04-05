@@ -38,11 +38,11 @@
 \setlength{\columnsep}{.25in}
 % set the paragraph spacing to 0
 \renewcommand{\baselinestretch}{1.05}
-\parskip 0pt
+\setlength{\parskip}{0pt}%
 %Use the indent first package to ensure the first paragraph after each
 %section is indented.
 \RequirePackage{indentfirst}
-\parindent = 10pt
+\setlength{\parindent}{10pt}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Font settings
