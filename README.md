@@ -1,8 +1,10 @@
-# AMS Extended Abstract LaTeX Template
+# AMS Extended Abstract LaTeX Class
 
 This repository contains a LaTeX class for creating an extended
 abstract that follows the [American Meteorological Society's instructions
 for formatting](https://www.ametsoc.org/ams/index.cfm/meetings-events/abstract-author-and-presenter-information/abstract-author-instructions/extended-abstract-instructions/).
+
+*Note:* This class is not supported or endorsed by the AMS. Users are responsible to ensuring any PDF generated with this class adheres to any of AMS's current extended abstract instructions and guidelines.
 
 ## About AMS Extended Abstracts
 AMS extended abstracts are an optional submission associated with presentations. AMS encourages using the extended abstract as it allows presenters to convey more information. These abstracts are submitted through the presenter's corner of the AMS conference website and typically have a deadline after the meeting unless used as a component in a student presentation award.
