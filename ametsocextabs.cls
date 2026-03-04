@@ -4,8 +4,8 @@
 % Maintainer: Chris Slocum
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NeedsTeXFormat{LaTeX2e}[2025-03-08]
-\ProvidesClass{ametsocextabs}[2025-04-05 AMS Extended Abstract Class]
+\NeedsTeXFormat{LaTeX2e}[2025-11-01]
+\ProvidesClass{ametsocextabs}[2026-03-03 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
