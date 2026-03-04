@@ -85,9 +85,10 @@ abstract formatting guidelines).
 ## Using DocumentMetadata
 The recent updates by the LaTeX Project have allowed
 LaTeX engine generated PDF files to adhere to PDF
-standard formats like PDF/A, PDF/UA, and PDF/X.
-Because of these recent changes, please use [TeX Live 2025](https://tug.org/texlive/) or newer.
-For the best results, consider compiling with LuaLaTeX to create standard compliant PDFs, especially the UA-2 standard.
+standard formats like PDF/A, PDF/UA, and PDF/X
+and support tagging with PDF 2.0.
+Because of these recent changes, please use [TeX Live 2026](https://tug.org/texlive/) or newer.
+For the best results, consider compiling with LuaLaTeX to create standard compliant PDFs, especially the UA-2 and A-4 standards.
 Note that these options do not guarantee compliance with the standards. So, you must manually check the output.
 Also, some LaTeX packages do not work with DocumentMetadata and cause errors.
 See the comments at the top of the template for additional information.
