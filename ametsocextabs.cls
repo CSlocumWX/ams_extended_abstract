@@ -176,7 +176,7 @@
     {0mm}% NO indent, starts immediately
     {-\baselineskip}% skips 1 baseline after end of previous subsection
     {0.5\baselineskip}% half baseline and the first paragraph starts
-    {\normalsize\bf\uppercase}%the style, Large and boldface
+    {\normalsize\bf\MakeUppercase}%the style, Large and boldface
 }
 \renewcommand{\thesection}{\arabic{section}} % numbers
 
@@ -230,7 +230,7 @@
         \begin{center}%
             \section*{\textnormal{APPENDIX}}%
         \end{center}
-        
+
     }%
     {
         \renewcommand\theequation{{#1}\arabic{equation}}%
