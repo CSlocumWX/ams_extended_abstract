@@ -108,4 +108,5 @@ do not guarantee compliance with the standards. So, you must manually
 check the output with programs like [veraPDF](https://verapdf.org/home/).
 Also, some LaTeX [packages](https://latex3.github.io/tagging-project/tagging-status/)
 do not work with DocumentMetadata and cause errors. See the comments
-at the top of the template for additional information.
+at the top of the template for additional information or use the
+`check-tagging-status` option in DocumentMetadata.
