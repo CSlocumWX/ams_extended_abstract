@@ -102,8 +102,8 @@
     \hypersetup{
         colorlinks
         linkcolor={black},
-        citecolor={blue!80!black},
-        urlcolor={blue!80!black}
+        citecolor={blue},
+        urlcolor={blue},
     }
 \else
     \hypersetup{
