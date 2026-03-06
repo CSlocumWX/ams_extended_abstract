@@ -5,7 +5,7 @@
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[2025-11-01]
-\ProvidesClass{ametsocextabs}[2026-03-03 AMS Extended Abstract Class]
+\ProvidesClass{ametsocextabs}[2026-03-06 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
