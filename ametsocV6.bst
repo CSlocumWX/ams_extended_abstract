@@ -1719,7 +1719,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
- "\renewcommand{\UrlFont}{\rmfamily}"
+ "\renewcommand{\UrlFont}{\sffamily}"
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$

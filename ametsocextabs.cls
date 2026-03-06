@@ -121,6 +121,8 @@
         urlcolor = black,
     }
 \fi
+% Change the url command font family to document font family (san serif)
+\urlstyle{same}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Title and thanks layout and settings
