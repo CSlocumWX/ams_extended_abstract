@@ -87,29 +87,38 @@
 \RequirePackage{xurl}
 \RequirePackage{bookmark}
 \RequirePackage{hyperref}
-\hypersetup{
-    hidelinks,
-    unicode,
-    bookmarks = true,
-    bookmarksopen = false,
-    pdfpagemode=UseNone,
-    pdfborder={0 0 0},
-    pdfdisplaydoctitle,
-    colorlinks,
-}
 
 \ifblue
     \hypersetup{
-        colorlinks
-        linkcolor={black},
-        citecolor={blue},
-        urlcolor={blue},
+        hidelinks,
+        unicode,
+        bookmarks = true,
+        bookmarksopen = false,
+        pdfpagemode=UseNone,
+        pdfborder = {0 0 0},
+        pdfdisplaydoctitle,
+        filecolor = black,
+        anchorcolor = black,
+        linkcolor = black,
+        colorlinks = true,
+        citecolor = blue,
+        urlcolor = blue,
     }
 \else
     \hypersetup{
-        linkcolor={black},
-        citecolor={black},
-        urlcolor={black}
+        hidelinks,
+        unicode,
+        bookmarks = true,
+        bookmarksopen = false,
+        pdfpagemode=UseNone,
+        pdfborder = {0 0 0},
+        pdfdisplaydoctitle,
+        filecolor = black,
+        anchorcolor = black,
+        linkcolor = black,
+        colorlinks = false,
+        citecolor = black,
+        urlcolor = black,
     }
 \fi
 
