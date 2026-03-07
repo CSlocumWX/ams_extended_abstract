@@ -16,12 +16,29 @@
 \DocumentMetadata
 {
     lang = en-US,
+    check-tagging-status,
+    colorprofiles =
+    {
+        A = sRGB.icc, %or longer GTS_PDFA1 = sRGB.icc
+        X = sRGB.icc,
+        ISO_PDFE1 = sRGB.icc,
+    },
     pdfversion = 2.0,
+    pdfstandard = ua-2,
     pdfstandard = a-4f,
     pdfstandard = x-6,
-    pdfstandard = ua-2,
-    tagging=on,
-    tagging-setup={math/setup=mathml-SE},
+    tagging = on,
+    tagging-setup =
+    {
+        math/setup =
+        {
+            mathml-AF,
+        },
+        extra-modules =
+        {
+            verbatim-af,
+        },
+    },
     xmp = true,
 }
 \documentclass[9pt]{ametsocextabs}
