@@ -5,7 +5,7 @@
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[2025-11-01]
-\ProvidesClass{ametsocextabs}[2026-03-06 AMS Extended Abstract Class]
+\ProvidesClass{ametsocextabs}[2026-03-07 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
@@ -79,6 +79,8 @@
 \RequirePackage{ifthen}
 % graphics package
 \RequirePackage{graphicx}
+% ORCID link package
+\RequirePackage{orcidlink}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   URL settings
@@ -97,11 +99,11 @@
         pdfpagemode=UseNone,
         pdfborder = {0 0 0},
         pdfdisplaydoctitle,
-        filecolor = black,
-        anchorcolor = black,
-        linkcolor = black,
         colorlinks = true,
+        anchorcolor = black,
         citecolor = blue,
+        filecolor = black,
+        linkcolor = black,
         urlcolor = blue,
     }
 \else
@@ -113,11 +115,11 @@
         pdfpagemode=UseNone,
         pdfborder = {0 0 0},
         pdfdisplaydoctitle,
-        filecolor = black,
-        anchorcolor = black,
-        linkcolor = black,
         colorlinks = false,
+        anchorcolor = black,
         citecolor = black,
+        filecolor = black,
+        linkcolor = black,
         urlcolor = black,
     }
 \fi
