@@ -40,12 +40,7 @@
 %   Page setup and layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup  using the geometry package
-\RequirePackage[letterpaper]{geometry}
-\newgeometry{%
-    margin=1truein,
-    nohead,
-    foot=0.5truein,
-}
+\RequirePackage[letterpaper, margin=1truein, nohead, foot=0.5truein,]{geometry}
 % Set the column separator width to 0.25 inches.
 \setlength{\columnsep}{0.25truein}
 % set the paragraph spacing to 0
@@ -130,20 +125,17 @@
 %   Title and thanks layout and settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % building the title for the extended abstract
-
-% Define correspondingauthor
-\newcommand{\correspondingauthor}[1]{%
+\newcommand{\correspondingauthor}[1]{% Define correspondingauthor
     \,\thanks{\noindent{{\itshape Corresponding author address}:}\ #1
 }}
-
-\newcommand{\titletextbox}[1]{%
+\newcommand{\titletextbox}[1]{% Put title in box and make uppercase
       \parbox{.8\textwidth}{\centering \MakeUppercase{#1}}%
 }
-\newcommand{\pgnumtextbox}[1]{%
+\newcommand{\pgnumtextbox}[1]{% Create paper number box
       \parbox{.1\textwidth}{#1}%
 }
 
-\renewcommand{\@maketitle}{%
+\renewcommand{\@maketitle}{% Make title
     \null
     {\large\bfseries\pgnumtextbox{\thepapernumber}\titletextbox{\@title}\pgnumtextbox{}\par}%
     \vskip 0.1em%
@@ -159,6 +151,7 @@
   }
 
 \renewcommand{\and}{\ \ \ {\sc and}\ \ \ }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Reference section settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,6 +162,31 @@
 \setlength{\bibsep}{0.25\baselineskip}
 % Center the References section title
 \renewcommand{\refname}{\begin{center}\normalfont{\bf REFERENCES}\end{center}\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Reference label configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[nameinlink]{cleveref}
+\crefname{equation}{}{}  % remove Eq./Eqs.
+\crefrangelabelformat{equation}{(#3#1#4)--(#5#2#6)}  % change range from 'to' to an en dash.
+\Crefname{figure}{Figure}{Figures}  % Full word at start of sentence
+\ifamsfigname
+    \crefname{figure}{Fig.}{Figs.}  % AMS abbreviates
+\else
+    \crefname{figure}{Figure}{Figures}  % NOAA does not abbreviate
+\fi
+\crefname{section}{section}{sections}  % lowercase in sentence
+\Crefname{section}{Section}{Sections}  % uppercase at start
+\crefname{table}{Table}{Tables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Figure and table caption labels
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create the proper style for the figure and table captions.
+\renewcommand{\figurename}{% Change label to Fig. and small caps
+    {\sc Fig.}}
+\renewcommand{\tablename}{% Make Table small caps
+    {\sc Table}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Section header settings
@@ -259,9 +277,3 @@
 }%
 
 \newcommand{\appendixtitle}[1]{{\centering\bf #1\vskip6pt}}
-
-% Create the proper style for the figure and table captions.
-\renewcommand{\figurename}{% Change label to Fig. and small caps
-    {\sc Fig.}}
-\renewcommand{\tablename}{% Make Table small caps
-    {\sc Table}}
