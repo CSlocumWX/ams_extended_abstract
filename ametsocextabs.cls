@@ -5,38 +5,46 @@
 % License:    BSD 3-Clause License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[2025-11-01]
-\ProvidesClass{ametsocextabs}[2026-03-07 AMS Extended Abstract Class]
+\ProvidesClass{ametsocextabs}[2026-03-22 v2.0 AMS Extended Abstract Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Document class options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\@@ptsize{9pt}
-\DeclareOption{9pt}{\def\@@ptsize{9pt}}
-\DeclareOption{10pt}{\def\@@ptsize{10pt}}
+% Child package specific options
 \newif\ifserif\seriffalse
 \DeclareOption{serif}{\seriftrue}
 \newif\ifblue \bluefalse
 \DeclareOption{blue}{\bluetrue}
+% Invalid options to pass to parent class, article
+\DeclareOption{onecolumn}{%
+   \ClassWarningNoLine{ametsocextabs}{Option `onecolumn' is not a valid option.}}
+\DeclareOption{12pt}{%
+   \ClassWarningNoLine{ametsocextabs}{Option `12pt' is not a valid option.}}
+% Pass options to parent class, article
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[\@@ptsize, twocolumn, letterpaper]{article}
-
+\LoadClass[letterpaper, 9pt, oneside, twocolumn, final]{article}
+%
+% Programatic extensions
+%
+\RequirePackage{iftex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Parse preamble input to get affiliation and papernumber
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\global\let\@affiliation\@empty
-\global\let\@papernumber\@empty
-\newcommand\aff[1]{\textsuperscript{#1}\,}
-\def\affiliation#1{\gdef\@affiliation{#1}}
-\def\papernumber#1{\gdef\@papernumber{#1}}
+\global\let\theaffiliation\empty
+\global\let\thepapernumber\empty
+\newcommand{\aff}[1]{{\normalfont\textsuperscript{#1}}\,}
+\newcommand{\affiliation}[1]{\gdef\theaffiliation{#1}}
+\newcommand{\papernumber}[1]{\gdef\thepapernumber{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Page setup and layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup  using the geometry package
 \RequirePackage[letterpaper]{geometry}
-\newgeometry{
+\newgeometry{%
     margin=1truein,
     nohead,
-    foot=0.5truein
+    foot=0.5truein,
 }
 % Set the column separator width to 0.25 inches.
 \setlength{\columnsep}{0.25truein}
@@ -46,7 +54,7 @@
 %Use the indent first package to ensure the first paragraph after each
 %section is indented.
 \RequirePackage{indentfirst}
-\setlength{\parindent}{10pt}%
+\setlength{\parindent}{10pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Font settings
@@ -87,44 +95,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Use times font in URLs
 \RequirePackage{xurl}
-\RequirePackage{bookmark}
+% Change the url command font family to document font family (san serif)
+\urlstyle{same}
 \RequirePackage{hyperref}
-
 \ifblue
-    \hypersetup{
+    \hypersetup{%
         hidelinks,
         unicode,
+        breaklinks,
         bookmarks = true,
         bookmarksopen = false,
-        pdfpagemode=UseNone,
+        pdfpagemode = UseNone,
         pdfborder = {0 0 0},
         pdfdisplaydoctitle,
         colorlinks = true,
-        anchorcolor = black,
-        citecolor = blue,
-        filecolor = black,
-        linkcolor = black,
-        urlcolor = blue,
+        allcolors = blue,
     }
 \else
-    \hypersetup{
+    \hypersetup{%
         hidelinks,
         unicode,
+        breaklinks,
         bookmarks = true,
         bookmarksopen = false,
-        pdfpagemode=UseNone,
+        pdfpagemode = UseNone,
         pdfborder = {0 0 0},
         pdfdisplaydoctitle,
         colorlinks = false,
-        anchorcolor = black,
-        citecolor = black,
-        filecolor = black,
-        linkcolor = black,
-        urlcolor = black,
+        allcolors = black,
     }
 \fi
-% Change the url command font family to document font family (san serif)
-\urlstyle{same}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Title and thanks layout and settings
@@ -132,40 +132,40 @@
 % building the title for the extended abstract
 
 % Define correspondingauthor
-\def\correspondingauthor#1{%
+\newcommand{\correspondingauthor}[1]{%
     \,\thanks{\noindent{{\itshape Corresponding author address}:}\ #1
 }}
 
-\newcommand\titletextbox[1]{%
+\newcommand{\titletextbox}[1]{%
       \parbox{.8\textwidth}{\centering \MakeUppercase{#1}}%
 }
-\newcommand\pgnumtextbox[1]{%
+\newcommand{\pgnumtextbox}[1]{%
       \parbox{.1\textwidth}{#1}%
 }
 
-\def\@maketitle{%
+\renewcommand{\@maketitle}{%
     \null
-    {\large\bfseries\pgnumtextbox{\@papernumber}\titletextbox{\@title}\pgnumtextbox{}\par}%
+    {\large\bfseries\pgnumtextbox{\thepapernumber}\titletextbox{\@title}\pgnumtextbox{}\par}%
     \vskip 0.1em%
     \begin{center}%
     {\large
       \lineskip 0.2em%
           {\@author\par}%
-          {\small\itshape\@affiliation\normalsize\par}%
+          {\small\itshape\theaffiliation\normalsize\par}%
     }%
     \end{center}%
     \par
     \vskip 0.5em%
   }
 
-\def\and{\ \ \ {\sc and}\ \ \ }
+\renewcommand{\and}{\ \ \ {\sc and}\ \ \ }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Reference section settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{natbib}
 % Citations should be of the form ``author year''  not ``author, year''
-\bibpunct{(}{)}{;}{a}{}{,}
-\newcommand*{\doi}[1]{doi:\href{https://dx.doi.org/\detokenize{#1}}{\detokenize{#1}}}
+\setcitestyle{aysep={}}  % Remove comma between author and year
+\newcommand*{\doi}[1]{\href{https://doi.org/\detokenize{#1}}{https://doi.org/\detokenize{#1}}}
 \setlength{\bibsep}{0.25\baselineskip}
 % Center the References section title
 \renewcommand{\refname}{\begin{center}\normalfont{\bf REFERENCES}\end{center}\par}
@@ -223,20 +223,23 @@
 
 \numberwithin{subsection}{section}
 
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+\newcommand{\statement}{\@startsection{section}{1}{\z@}%
                                     {6pt \@plus1ex \@minus.2ex}%
                                     {-1em}%
-                                    {\normalfont\normalsize\it}}
-\newcommand\statement{\@startsection{section}{1}{\z@}%
-                                    {6pt \@plus1ex \@minus.2ex}%
-                                    {-1em}%
-                                    {\normalfont\normalsize\it}}
-\def\datastatement{\statement*{Data availability statement.}}
-\def\acknowledgments{\statement*{Acknowledgments.}}
-\def\acknowledgment{\statement*{Acknowledgment.}}
+                                    {\normalfont\normalsize\itshape}}
+\newcommand{\acknowledgments}{
+    \statement*{Acknowledgments.}
+    \addcontentsline{toc}{section}{\protect\numberline{}Acknowledgments}}
+\newcommand{\acknowledgment}{\acknowledgments}
+\newcommand{\datastatement}{
+    \statement*{Data availability statement.}
+    \addcontentsline{toc}{section}{\protect\numberline{}Data availability statement}}
+\newcommand{\disclaimer}{
+    \statement*{Disclaimer.}
+    \addcontentsline{toc}{section}{\protect\numberline{}Disclaimer}}
 
-\renewenvironment{appendix}[1][1]{
-    \ifthenelse{\equal{#1}{1}}{
+\renewenvironment{appendix}[1][1]{%
+    \ifthenelse{\equal{#1}{1}}{%
         \renewcommand\theequation{A\arabic{equation}}%
         \setcounter{equation}{0}% reset counter
         \setcounter{subsection}{0}% reset counter
@@ -244,8 +247,8 @@
             \section*{\textnormal{APPENDIX}}%
         \end{center}
 
-    }%
-    {
+    }
+    {%
         \renewcommand\theequation{{#1}\arabic{equation}}%
         \setcounter{equation}{0}% reset counter
         \setcounter{subsection}{0}% reset counter
@@ -255,22 +258,10 @@
     }
 }%
 
-\long\def\appendixtitle#1{{\centering\bf #1\vskip6pt}}
+\newcommand{\appendixtitle}[1]{{\centering\bf #1\vskip6pt}}
 
-% Remove colon in \caption, AMS style is to have a period after the
-% figure number
-\long\def\@makecaption#1#2{%
 % Create the proper style for the figure and table captions.
-    \renewcommand{\figurename}{\textsc{Fig.}}
-    \renewcommand{\tablename}{\textsc{Table}}
-    \renewcommand{\thefigure}{\arabic{figure}.}
-    \renewcommand{\thetable}{\arabic{table}.}
-    \vskip\abovecaptionskip
-    \sbox\@tempboxa{#1~~#2}%
-    \ifdim \wd\@tempboxa >\hsize
-        #1~~#2\par%
-    \else
-        \global \@minipagefalse
-        \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-    \fi
-\vskip\belowcaptionskip}
+\renewcommand{\figurename}{% Change label to Fig. and small caps
+    {\sc Fig.}}
+\renewcommand{\tablename}{% Make Table small caps
+    {\sc Table}}
